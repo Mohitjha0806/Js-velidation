@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Validation</title>
+    <link href="bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="container py-5 d-flex justify-content-center ">
+            <div class="card w-75">
+                <div class="card-header text-center bg-info-subtle">
+                    <h1 class="display-6 fw-semibold">Ragistration Form</h1>
+                </div>
+                <div class="card-body bg-danger-subtle">
+                    <form name="myForm" onsubmit="return validationForm()">
+                        <div class="row d-flex justify-content-center form-group ">
+                            <div class="col-md-4">
+                                <label class=" form-label fw-semibold">First name</label>
+                                <input type="text" id="fname" name="fname" class="form-control border-2 border-dark-subtle" placeholder="Enter first name" />
+                                <label id="firstNameError" class="form-label" style="color:red;"></label>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-semibold">Last name</label>
+                                <input type="text" id="lname" name="lname" class="form-control border-2 border-dark-subtle" placeholder="Enter last name" />
+                                <label id="lastNameError" class="form-label" style="color:red;"></label>
+                            </div>
+                        </div>
+                        <div class="row mt-2 d-flex justify-content-center form-group ">
+                            <div class="col-md-4">
+                                <label class="form-label fw-semibold">Phone No.</label>
+                                <input type="tel" name="mobile" id="mobile" maxlength="10" class="form-control border-2 border-dark-subtle" placeholder="Enter 10 digit No." />
+                                <label id="phoneError" class="form-label" style="color:red;"></label>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-semibold">Email</label>
+                                <input type="text" id="email" name="email" maxlength="24" class="form-control border-2 border-dark-subtle"
+                                       placeholder="example@gmail.com" />
+                                <label id="emailError" class="form-label" style="color:red;"></label>
+                            </div>
+                        </div>
+                        <div class="row mt-2 d-flex justify-content-center form-group ">
+                            <div class="col-md-4">
+                                <label class="form-label fw-semibold">Date of Birth</label>
+                                <input type="date" id="date" name="date" class="form-control border-2 border-dark-subtle" placeholder="Select date" />
+                                <label id="dateError" class="form-label" style="color:red;"></label>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-semibold">Time</label>
+                                <input type="time" id="time" name="time" class="form-control border-2 border-dark-subtle" placeholder="Select time" />
+                                <label id="timeError" class="form-label" style="color:red;"></label>
+                            </div>
+                        </div>
+                        <div class="row mt-2 d-flex justify-content-center form-group ">
+                            <div class="col-md-4 form-group">
+                                <label class="form-label fw-semibold">Education</label><br />
+                                <input type="checkbox" value="PG" name="PG" />
+                                <label class="form-label fw-semibold">PG &nbsp;</label>
+                                <input type="checkbox" value="UG" name="UG" />
+                                <label class="form-label fw-semibold">UG &nbsp;</label>
+                                <input type="checkbox" value="12th" name="12th" />
+                                <label class="form-label fw-semibold">12th &nbsp;</label>
+                                <input type="checkbox" value="10th" name="10th" />
+                                <label class="form-label fw-semibold">10th &nbsp;</label>
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label class="form-label fw-semibold">Gender</label><br />
+                                <input type="radio" class="" name="gender" value="male" />
+                                <label class="form-label fw-semibold">Male</label> &nbsp;
+                                <input type="radio" class="" name="gender" value="female" />
+                                <label class="form-label fw-semibold">Female</label>
+                            </div>
+                        </div>
+                        <div class="row mt-2 d-flex justify-content-center form-group ">
+                            <div class="col-md-4">
+                                <label class=" form-label fw-semibold">User Name</label>
+                                <input type="tel" id="userName" name="userName" maxlength="14" placeholder="Enter user Name" class="form-control border-2 border-dark-subtle" />
+                                <label id="userError" class="form-label" style="color:red;"></label>
+                            </div>
+                            <div class="col-md-4">
+                                <label class=" form-label fw-semibold">Age</label>
+                                <input contextmenu="tel" id="age" name="age" maxlength="2" placeholder="Enter age" class="form-control border-2 border-dark-subtle" />
+                                <label id="ageError" class="form-label" style="color:red;"></label>
+                            </div>
+                        </div>
+                        <div class="row mt-2 d-flex justify-content-center form-group ">
+                            <div class="col-md-4 form-group">
+                                <label class="form-label fw-semibold">Password</label>
+                                <input type="password" name="password" id="password" placeholder="*******" class="form-control border-2 border-dark-subtle" />
+                                <label id="passwordError" class="form-label" style="color:red;"></label>
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label class="form-label fw-semibold">Re-Password</label>
+                                <input type="password" id="rePassword" name="rePassword" placeholder="*******" class="form-control border-2 border-dark-subtle" />
+                                <label id="rePasswordError" class="form-label" style="color:red;"></label>
+                            </div>
+                        </div>
+                        <div class="row py-5 d-flex justify-content-center form-group">
+                            <div class="col-md-2">
+                                <button class="form-control btn btn-primary" type="submit" onsubmit="validate()">Submit</button>
+                            </div>
+                            <label id="timeError" class="form-label" style="color:red;"></label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <script src="JavaScript.js"></script>
+</body>
+</html>
